@@ -12,6 +12,7 @@ const connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
+    process.stdout.write('\x1B[2J\x1B[0f');
     start();
 })
 
