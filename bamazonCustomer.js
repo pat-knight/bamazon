@@ -79,7 +79,7 @@ function select() {
                     if (err) throw err;
                     console.log(`Order Summary: \nThank You! You have successfully ordered a total of ${answers.quantity} $${res[0].product_name}, for a total cost of ${res[0].price * answers.quantity}`);
                     keepShopping();
-                })
+                });
             } else {
                 console.log('Sorry, order could not be fulfilled in this quantity.');
                 keepShopping();
