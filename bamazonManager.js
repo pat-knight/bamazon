@@ -72,11 +72,11 @@ function addInventory() {
         type: 'input',
         message: 'How many would you like to add to the current stock?'
     }]).then(answer => {
-        connection.query(`UPDATE products SET stock_quantity=stock_quantity-? where ?`, [answers.quantity, {//start here 2/19
+        connection.query(`UPDATE products SET stock_quantity=stock_quantity+? where ?`, [answers.quantity, {//start here 2/19
             item_id: answers.select
         }], function (err) {
             if (err) throw err;
-            console.log(`Order Summary: \nThank You! You have successfully ordered a total of ${answers.quantity} $${res[0].product_name}, for a total cost of ${res[0].price * answers.quantity}`);
+            console.log(`Stock updated. The new total of  ${answers.quantity} $${res[0].product_name}, for a total cost of ${res[0].price * answers.quantity}`);
             keepShopping();
         })       
     })

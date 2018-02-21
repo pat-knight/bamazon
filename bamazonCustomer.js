@@ -41,10 +41,6 @@ function displayAll() {
     connection.query('SELECT item_id, department_name, product_name, price FROM products WHERE stock_quantity>1', function (err, res) {
         if (err) throw err;
         console.table(res);
-        // res.forEach((prod) => {
-        //     ids.push(prod.id)
-        // });
-        // console.log(ids);
         select();
     })
 }
@@ -53,6 +49,9 @@ function displayDept() {
     connection.query('SELECT department_name FROM products', function (err, res) {
         if (err) throw err;
         console.table(res);
+    });
+    inquirer.prompt({
+        name: ''
     })
 }
 
@@ -103,4 +102,9 @@ function keepShopping() {
             process.exit();
         }
     })
+}
+
+
+function hi() {
+    console.log('hi')
 }
