@@ -95,7 +95,7 @@ function addInventory() {
       {
         name: "supply",
         type: "input",
-        message: "Please select id of item you would like to add supply to."
+        message: "Please select id of item you would like to add supply to"
       },
       {
         name: "supQuant",
@@ -109,24 +109,62 @@ function addInventory() {
         [
           answer.supQuant,
           {
-            item_id: answers.supply
+            item_id: answer.supply
           }
         ],
         function(err) {
           if (err) throw err;
           console.log(
-            `Stock updated. You added  ${answer.quantity} to ${
-              res[0].product_name
-            }`
+            `\nStock updated. You added  ${answer.supQuant} units to item_id: ${answer.supply}\n`
           );
-          keepShopping();
+            manager();
         }
       );
     });
 
 }
 
-function addProduct() {}
+function addProduct() {
+    inquirer.prompt([{
+        name: 'name',
+        type: 'input',
+        message: 'What is the name of the product you wish to add?'
+    },
+    {
+        name: 'cost',
+        type: 'input',
+        message: 'How much will each unit cost in dollars?',
+        validate: (res) => {
+            return !isNaN(res) || "Please enter a number"; 
+        }   
+    },
+    {
+        name: 'stock',
+        type: 'input',
+        message: 'How many units do you wish to add to the store?',
+        validate: (res) => {
+            return !isNaN(res) || "Please enter a number"; 
+        }       
+    },
+    {
+        name: 'department',
+        type: 'input',
+        message: 'To which department are you adding this item?'    
+    },
+]).then(answers => {
+    connection.query('INSERT INTO products SET ?', {
+        product_name: answers.name,
+        department_name: answers.department,
+        price: answers.cost,
+        stock_quantity: answers.stock,
+    },
+    function (err, res) {
+        if (err) throw err;
+        console.log(`\nSuccessfully added ${answers.stock} units of ${answers.name} to ${answers.department} at a cost of ${answers.cost} per unit.`);
+        manager();
+    })
+})
+}
 
 function lowPrompt() {
   inquirer

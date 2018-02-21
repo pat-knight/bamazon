@@ -30,13 +30,10 @@
     1. From the command line, navigate to the bamazon directory and execute bamazonCustomer.js
     ```$ node bamazonCustomer.js```
     2. Follow the prompts to shop for items and place orders
-    <img src="screenshots/bamazon_customer.gif?raw=true" alt="Customer Order" width="400px" />
+    <img src="screenshots/bamazon_customer.gif?raw=true" alt="Customer Order" width="600px" />
 2. Manager Mode
     1. From the command line, navigate to the bamazon directory and execute bamazonCustomer.js
     ```$ node bamazonManager.js```
     2. Follow the prompts to view products, manage inventory or add new products
+    <img src="screenshots/bamazon_customer.gif?raw=true" alt="Customer Order" width="600px" />
 
-
-How users can get started with the project
-Where users can get help with your project
-Who maintains and contributes to the project
