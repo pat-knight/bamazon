@@ -13,5 +13,9 @@
     "console.table": "^0.10.0",
     "inquirer": "^5.1.0",
     "mysql": "^2.15.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roamingbadger/bamazon.git"
   }
 }
